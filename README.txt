@@ -6,5 +6,17 @@ Lawrence Khuu
 Lindsay Stewart
 Justin Flores
 
-Walk around levels of a dungeon collecting items and killing monsters.
-Game ends when player dies or kills a monster named Oznatsoc.
+System Requirements:
+ - How to build game:
+
+ - Libraries:
+
+ - File storage:
+
+
+Gameplay:
+  Walk around levels of a dungeon using arrow keys collecting items and killing monsters.
+  Game ends when player dies or kills a monster named Oznatsoc.
+
+
+
