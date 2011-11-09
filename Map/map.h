@@ -18,6 +18,8 @@ public:
 	Get_Monster();
 	Get_Item();
 	void test();
+	int GUIstringArrayLength();
+	string *getGUIstrings();
 private:
 	layer *clayer;
 };
