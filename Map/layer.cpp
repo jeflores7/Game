@@ -57,7 +57,15 @@ int layer::AddCharacter(character* add_char, int char_x, int char_y) {
 	LayerMap[char_x][char_y].lchar = add_char;
 }
 
-
+int layer::getWidth(){
+	return WIDTH;
+}
+int layer::getHeight(){
+	return HEIGHT;
+}
+tile* layer::getLayerMap(){
+	return LayerMap;
+}
 
 // PRIVATE FUNCTIONS/HELPERS FOR GENERATION
 
