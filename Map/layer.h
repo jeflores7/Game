@@ -44,6 +44,10 @@ class layer{
 		monster* Get_Monster();
 		item* Get_Item();
 		void Print();
+		
+		int getWidth();
+		int getHeight();
+		tile* getLayerMap();
 	private:
 		tile LayerMap[WIDTH][HEIGHT];
 		character *charlist;
