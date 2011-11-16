@@ -1,0 +1,63 @@
+#include "hall.h"
+
+using namespace std;
+
+hall::hall_room(int newx, int newy, base_room* origin):base_room(-1, int newx, int newy) {
+	h_length = 0;
+	origin_room = origin;
+};
+
+bool hall::Expand(tile LayerMap[][HEIGHT]) {
+	int inc_x = 0;
+	int inc_y = 0;
+
+	if(LayerMap[x-1][y].room == origin_room) {	// HALL NEEDS TO EXPAND +X
+		inc_x = 1;
+		inc_y = 0;
+	}
+	else if(LayerMap[x+1][y].room == origin_room) { // HALL NEEDS TO EXPAND -X
+		inc_x = -1;
+		inc_y = 0;
+	}
+	else if(LayerMap[x][y-1].room == origin_room) { // HALL NEEDS TO EXPAND +Y
+		inc_y = 1;
+		inc_x = 0;
+	}
+	else if(LayerMap[x][y+1].room == origin_room) { // HALL NEEDS TO EXPAND -Y
+		inc_y = -1;
+		inc_x = 0;
+	}
+	
+	hxlength = 0-inc_x;
+	hylength = 0-inc_y;
+	
+	while(y+hylength+inc_y<HEIGHT && y+hylength+inc_y>0 && x+hxlength+inc_x<WIDTH && x+hxlength+inc_x>0 &&
+			LayerMap[x+inc_y+hxlength+inc_x][y+inc_x+hylength].lterrain == WALL && 
+			LayerMap[x-inc_y+hxlength][y+inc_x+hylength] == WALL &&
+			LayerMap[x+hxlength][y+hylength] == WALL) {
+				hxlength += inc_x;
+				hylength += inc_y;
+	}
+	if(y+hylength+inc_y>=HEIGHT || x+hxlength+inc_x>=WIDTH || hxlength == 2 || hylength == 2 ||
+		(hxlength < 0 && hylength <0) || LayerMap[x+hxlength+inc_x][y+hylength+inc_y].lterrain == WALL) {
+			return false;
+	}
+	LayerMap[x][y].lterrain = DOOR;
+	LayerMap[x][y].room = this;
+	for(int i=1;i<hxlength;i++) {
+		LayerMap[x+i][y].lterrain = FLOOR;
+		LayerMap[x+i][y].room = this;
+	}
+	for(int i=1;i<hylength;i++) {
+		LayerMap[x][y+i].lterrain = FLOOR;
+		LayerMap[x][y+i].room = this;
+	}
+	LayerMap[x+hxlength][y+hylength].lterrain = DOOR;
+	LayerMap[x+hxlength][y+hylength].room = -1;
+	LayerMap[x+hxlength][y+hylength].room->doors++;
+	return true;
+}
+
+void hall::Place_Doors(tile LayerMap[][HEIGHT]) {
+	return;
+}

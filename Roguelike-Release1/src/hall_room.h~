@@ -1,0 +1,21 @@
+#ifndef HALL_H
+#define HALL_H	
+	
+#include "base_room.h"
+	
+class hall: public base_room {
+	public:	
+		hall(int newx, int newy, int origin);
+		bool Expand(tile LayerMap[][HEIGHT]);
+		void Place_Doors(tile LayerMap[][HEIGHT]);
+		void Light_Room(tile LayerMap[][HEIGHT]);
+		void Darken_Room(tile LayerMap[][HEIGHT]);
+	private:
+		int h_length;
+		int end_x;
+		int end_y;
+		int origin_room;
+		int final_room;
+}
+
+#endif
