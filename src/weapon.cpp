@@ -4,7 +4,7 @@
 //--------------------//
 //-weapon constructor-//
 //--------------------//
-weapon::weapon(int weaponValue):item(false, true){
+weapon::weapon(int weaponValue):item(false, true, "Generic Weapon"){
 	bonusAttack = weaponValue;
 	}
 
