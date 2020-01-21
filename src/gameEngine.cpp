@@ -109,9 +109,7 @@ int main() {
   bool inventory = false;
   bool menu = false;
   
-  do {  	
-		// Print to side window
-		wrefresh(sidepanel);
+  do {
 		
 		// Print to map window
   	   map->Print(mapw);
@@ -172,6 +170,8 @@ int main() {
 		else {
 			sidepanel = characterw;
 		}
+        // Print to side window
+        wrefresh(sidepanel);
 	  
   } while(command != QUIT);
   
