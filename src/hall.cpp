@@ -319,7 +319,7 @@ int inc_r, first, length;
 			side_hlength = 0;
 			side_x = x+inc_y+(i*inc_x*inc_x);
 			side_y = y+inc_x+(i*inc_y*inc_y);
-			while(LayerMap[side_x+(side_hlength*inc_y)][side_y+(side_hlength*inc_x)].room == false) {
+			while(LayerMap[side_x+(side_hlength*inc_y)][side_y+(side_hlength*inc_x)].room == nullptr) {
 				side_hlength+=inc_y*inc_y;
 				side_hlength+=inc_x*inc_x;
 				LayerMap[side_x+inc_x+(side_hlength*inc_y)][side_y+inc_y+(side_hlength*inc_x)].lit = false;
@@ -331,7 +331,7 @@ int inc_r, first, length;
 			side_hlength = 0;
 			side_x = x-inc_y+(i*inc_x*inc_x);
 			side_y = y-inc_x+(i*inc_y*inc_y);
-			while(LayerMap[side_x-(side_hlength*inc_y)][side_y-(side_hlength*inc_x)].room == false) {
+			while(LayerMap[side_x-(side_hlength*inc_y)][side_y-(side_hlength*inc_x)].room == nullptr) {
 				side_hlength+=inc_y*inc_y;
 				side_hlength+=inc_x*inc_x;
 				LayerMap[side_x+inc_x-(side_hlength*inc_y)][side_y+inc_y-(side_hlength*inc_x)].lit = false;
